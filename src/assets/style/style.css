@@ -1,0 +1,110 @@
+html,
+body,
+* {
+  font-family: "Nunito Sans" !important;
+}
+
+/* custom default css */
+.text-size-10 {
+  font-size: 10px !important;
+}
+.text-size-12 {
+  font-size: 12px !important;
+}
+.text-size-14 {
+  font-size: 14px !important;
+}
+.text-size-16 {
+  font-size: 16px !important;
+}
+.text-size-18 {
+  font-size: 18px !important;
+}
+.pointer {
+  cursor: pointer !important;
+}
+.nested-pointer * {
+  cursor: pointer !important;
+}
+
+/* Custom Tooltip CSS */
+
+/* top tooltip */
+.tooltip-top::before {
+  border-right: solid 8px transparent;
+  border-left: solid 8px transparent;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: -21;
+  content: "";
+  top: 100%;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+.tooltip-top.white::before {
+  border-bottom: solid 8px #ffffff;
+}
+/* bottom tooltip */
+.tooltip-bottom::before {
+  border-right: solid 6px transparent;
+  border-left: solid 6px transparent;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: -21;
+  content: "";
+  bottom: 100%;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+.tooltip-bottom.white::before {
+  border-bottom: solid 8px #ffffff;
+}
+/* left tooltip */
+.tooltip-left::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-top: solid 8px transparent;
+  border-bottom: solid 8px transparent;
+  border-right: solid 8px transparent;
+}
+.tooltip-left.white::before {
+  border-left: solid 8px #ffffff !important;
+}
+/* right tooltip */
+.tooltip-right::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-top: solid 8px transparent;
+  border-bottom: solid 8px transparent;
+  border-left: solid 8px transparent;
+}
+.tooltip-right.white::before {
+  border-right: solid 8px #ffffff !important;
+}
+
+.tooltip-top.v-tooltip__content,
+.tooltip-bottom.v-tooltip__content,
+.tooltip-left.v-tooltip__content,
+.tooltip-right.v-tooltip__content {
+  background: white !important;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.3) !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+  border-radius: 6px !important;
+}
+
+.tooltip-text {
+  color: #424242;
+}

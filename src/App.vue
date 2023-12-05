@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-app>
+      <div>
+        <snackbar-component
+          v-show="this.$store.state.snackbar.snack"
+          :snackbar="snackBar.snackbar"
+          :message="snackBar.message"
+          :color="snackBar.color"
+        />
+        <router-view></router-view>
+      </div>
+    </v-app>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import SnackbarComponent from "./components/utilities/components/SnackbarComponent.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    SnackbarComponent,
+  },
+  watch: {
+    /**
+     * This watcher is responsible to watch for any route changes and then set title of the page accordingly
+     *
+     * @param {object} to The payload object contains meta
+     * @return none
+     */
+    $route: {
+      handler(to) {
+        document.title = to?.meta?.title || "Vue2 Scaffold";
+      },
+      immediate: true,
+    },
+  },
+  computed: {
+    snackBar() {
+      return this.$store.state.snackbar.snack;
+    },
+  },
+  created() {
+    // if (localStorage.getItem("token")) {
+    //   //on page refresh get latest data
+    //   this.$store.dispatch("getUserData");
+    // }
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
