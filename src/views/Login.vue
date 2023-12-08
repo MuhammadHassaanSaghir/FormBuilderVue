@@ -12,10 +12,16 @@
       "
     >
       <div>
-        <img src="../assets/images/logo.svg" alt="" width="40px" />
+        <img src="../assets/images/logo.svg" alt="logo" width="40px" />
       </div>
       <v-card-text class="pa-0 py-4">
-        <v-form v-model="validForm" @submit.prevent="login">
+        <v-form
+          ref="loginForm"
+          v-model="validForm"
+          lazy-validation
+          @submit.prevent="login"
+          @keyup.native.enter="login"
+        >
           <div>
             <label for="" class="black--text"> Email Address </label>
             <v-text-field
@@ -212,24 +218,26 @@ export default {
     },
 
     login() {
-      this.loginBtnLoader = true;
-      let payloadData = {
-        url: "https://dummyjson.com/auth/login",
-        data: {
-          username: "kminchelle",
-          password: "0lelplR",
-        },
-      };
-      this.$store
-        .dispatch("postData", payloadData)
-        .then((response) => {
-          localStorage.setItem("token", JSON.stringify(response.data.token));
-          this.$router.push("/app-layout");
-        })
-        .catch(() => {})
-        .finally(() => {
-          this.loginBtnLoader = false;
-        });
+      if (this.$refs.loginForm.validate()) {
+        this.loginBtnLoader = true;
+        let payloadData = {
+          url: "https://dummyjson.com/auth/login",
+          data: {
+            username: "kminchelle",
+            password: "0lelplR",
+          },
+        };
+        this.$store
+          .dispatch("postData", payloadData)
+          .then((response) => {
+            localStorage.setItem("token", JSON.stringify(response.data.token));
+            this.$router.push("/app-layout");
+          })
+          .catch(() => {})
+          .finally(() => {
+            this.loginBtnLoader = false;
+          });
+      }
     },
   },
 };
