@@ -1,10 +1,15 @@
 <template>
-  <div>Testing Page</div>
+  <div>
+    <h1>Testing Page</h1>
+    <div></div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "AppLayout",
-  components: {},
+  data() {
+    return {};
+  },
 };
 </script>

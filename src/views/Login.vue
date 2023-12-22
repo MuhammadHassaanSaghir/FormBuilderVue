@@ -33,16 +33,19 @@
               :rules="emailRule"
             ></v-text-field>
           </div>
-          <div>
+          <div class="mt-3">
             <label for="" class="black--text">Password</label>
             <v-text-field
-              v-model="password"
+              v-model.trim="password"
               placeholder="Password"
               outlined
               class="rounded-lg mt-1"
               color="#000"
               :rules="passwordRule"
               @input="checkPasswordStrength"
+              :type="visible ? 'text' : 'password'"
+              :append-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+              @click:append="visible = !visible"
             ></v-text-field>
             <div v-if="password" class="mb-3">
               <p
@@ -180,6 +183,7 @@ export default {
       validForm: true,
       emailAddress: "",
       password: "",
+      visible: false,
       passwordStrength: 0,
       loginBtnLoader: false,
 

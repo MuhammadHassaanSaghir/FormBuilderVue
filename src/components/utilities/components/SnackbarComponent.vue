@@ -3,7 +3,6 @@
     v-model="localSnackbar"
     :timeout="2000"
     :color="color"
-    :absolute="$vuetify.breakpoint.smAndDown"
     rounded="lg"
     class="ma-0"
     style="z-index: 999 !important"

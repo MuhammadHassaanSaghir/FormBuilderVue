@@ -34,6 +34,12 @@ const routes = [
       }
     },
   },
+  {
+    name: "PageNotFound",
+    path: "*",
+    component: () => import("../views/PageNotFound.vue"),
+    meta: { requiresAuth: false, title: "PageNotFound" },
+  },
 ];
 
 const router = new VueRouter({
