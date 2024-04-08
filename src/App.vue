@@ -25,7 +25,7 @@ export default {
      */
     $route: {
       handler(to) {
-        document.title = to?.meta?.title || "Vue2 Scaffold";
+        document.title = to?.meta?.title || "Formbuilder Vue";
       },
       immediate: true,
     },
