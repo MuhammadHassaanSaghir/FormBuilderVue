@@ -35,6 +35,24 @@ const routes = [
     },
   },
   {
+    name: "FormLists",
+    path: "/form-lists",
+    component: () => import("@/components/form/FormLists.vue"),
+    meta: { requiresAuth: true, title: "Form List" },
+  },
+  {
+    name: "FormBuilder",
+    path: "/form-builder/:formId",
+    component: () => import("@/components/form/FormBuilder.vue"),
+    meta: { requiresAuth: true, title: "Form Builder" },
+  },
+  {
+    name: "FormPreview",
+    path: "/form-preview/:formId",
+    component: () => import("@/components/form/FormPreview.vue"),
+    meta: { requiresAuth: true, title: "Form Preview" },
+  },
+  {
     name: "PageNotFound",
     path: "*",
     component: () => import("../views/PageNotFound.vue"),

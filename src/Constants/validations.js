@@ -1,4 +1,5 @@
-const requiredRule = [(v) => !!v || "This field is required."];
+const requiredRule = [(v) => !!v?.trim() || "This field is required."];
+const numberRequiredRule = [(v) => !!v || "This field is required."];
 const emailRule = [
   (v) => !!v?.trim() || "Email is required.",
   (v) =>
@@ -21,4 +22,4 @@ const passwordRule = [
   (v) => /.{6,}/.test(v?.trim()) || "Password must be at least 6 characters.",
 ];
 
-export { requiredRule, emailRule, passwordRule };
+export { requiredRule, numberRequiredRule, emailRule, passwordRule };

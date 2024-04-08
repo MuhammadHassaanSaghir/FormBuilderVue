@@ -1,16 +1,12 @@
 <template>
   <div id="app">
-    <v-app>
-      <div>
-        <snackbar-component
-          v-show="this.$store.state.snackbar.snack"
-          :snackbar="snackBar.snackbar"
-          :message="snackBar.message"
-          :color="snackBar.color"
-        />
-        <router-view></router-view>
-      </div>
-    </v-app>
+    <snackbar-component
+      v-show="this.$store.state.snackbar.snack"
+      :snackbar="snackBar.snackbar"
+      :messages="snackBar.message"
+      :color="snackBar.color"
+    />
+    <router-view></router-view>
   </div>
 </template>
 <script>

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-tooltip bottom :disabled="!isEllipsisActive">
+    <v-tooltip
+      bottom
+      :disabled="!isEllipsisActive"
+      max-width="500px"
+      content-class="white tooltip-bottom"
+    >
       <template v-slot:activator="{ on, attrs }">
         <div
           v-if="!showInChip"
@@ -9,6 +14,7 @@
           ref="tooltipContent"
           class="text-truncate tooltip-truncation"
           :style="`-webkit-line-clamp: ${truncationLine} !important;`"
+          @mouseover="checkEllipsis()"
         >
           {{ fullText }}
         </div>
@@ -18,13 +24,14 @@
               ref="tooltipContent"
               class="text-truncate tooltip-truncation"
               :style="`-webkit-line-clamp: ${truncationLine} !important;`"
+              @mouseover="checkEllipsis()"
             >
               {{ fullText }}
             </span>
           </v-chip>
         </div>
       </template>
-      <span>
+      <span class="tooltip-text primary--text font-family-dm-sans-500">
         {{ fullText }}
       </span>
     </v-tooltip>

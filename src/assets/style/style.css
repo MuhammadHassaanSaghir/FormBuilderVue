@@ -1,7 +1,97 @@
+@font-face {
+  font-family: "DMSans-Thin";
+  src: url("~@/assets/fonts/DMSans-Thin.ttf");
+}
+@font-face {
+  font-family: "DMSans-ExtraLight";
+  src: url("~@/assets/fonts/DMSans-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "DMSans-Light";
+  src: url("~@/assets/fonts/DMSans-Light.ttf");
+}
+@font-face {
+  font-family: "DMSans-Regular";
+  src: url("~@/assets/fonts/DMSans-Regular.ttf");
+}
+@font-face {
+  font-family: "DMSans-Medium";
+  src: url("~@/assets/fonts/DMSans-Medium.ttf");
+}
+@font-face {
+  font-family: "DMSans-SemiBold";
+  src: url("~@/assets/fonts/DMSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "DMSans-Bold";
+  src: url("~@/assets/fonts/DMSans-Bold.ttf");
+}
+@font-face {
+  font-family: "DMSans-ExtraBold";
+  src: url("~@/assets/fonts/DMSans-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "DMSans-Black";
+  src: url("~@/assets/fonts/DMSans-Black.ttf");
+}
+
+:root {
+  /* font families */
+  --font-family-dm-sans-100: "DMSans-Thin", sans-serif;
+  --font-family-dm-sans-200: "DMSans-ExtraLight", sans-serif;
+  --font-family-dm-sans-300: "DMSans-Light", sans-serif;
+  --font-family-dm-sans-400: "DMSans-Regular", sans-serif;
+  --font-family-dm-sans-500: "DMSans-Medium", sans-serif;
+  --font-family-dm-sans-600: "DMSans-SemiBold", sans-serif;
+  --font-family-dm-sans-700: "DMSans-Bold", sans-serif;
+  --font-family-dm-sans-800: "DMSans-ExtraBold", sans-serif;
+  --font-family-dm-sans-900: "DMSans-Black", sans-serif;
+
+  /* colors */
+  --primary: #1a1625;
+  --secondary: #2f2b3a;
+  --accent: #46424f;
+  --info: #5e5a66;
+  --success: #76737e;
+  --light: #908d96;
+  --off-white: #f0f0f0;
+}
+
 html,
 body,
 * {
-  font-family: "Nunito Sans" !important;
+  font-family: var(--font-family-dm-sans-400) !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* font family css */
+.font-family-dm-sans-100 {
+  font-family: var(--font-family-dm-sans-100) !important;
+}
+.font-family-dm-sans-200 {
+  font-family: var(--font-family-dm-sans-200) !important;
+}
+.font-family-dm-sans-300 {
+  font-family: var(--font-family-dm-sans-300) !important;
+}
+.font-family-dm-sans-400 {
+  font-family: var(--font-family-dm-sans-400) !important;
+}
+.font-family-dm-sans-500 {
+  font-family: var(--font-family-dm-sans-500) !important;
+}
+.font-family-dm-sans-600 {
+  font-family: var(--font-family-dm-sans-600) !important;
+}
+.font-family-dm-sans-700 {
+  font-family: var(--font-family-dm-sans-700) !important;
+}
+.font-family-dm-sans-800 {
+  font-family: var(--font-family-dm-sans-800) !important;
+}
+.font-family-dm-sans-900 {
+  font-family: var(--font-family-dm-sans-900) !important;
 }
 
 /* custom default css */
@@ -20,11 +110,23 @@ body,
 .text-size-18 {
   font-size: 18px !important;
 }
+.text-size-20 {
+  font-size: 20px !important;
+}
+.text-size-22 {
+  font-size: 22px !important;
+}
 .pointer {
   cursor: pointer !important;
 }
 .nested-pointer * {
   cursor: pointer !important;
+}
+.default-cursor {
+  cursor: default !important;
+}
+.text-cursor {
+  cursor: text !important;
 }
 
 /* Custom Tooltip CSS */
@@ -107,4 +209,18 @@ body,
 
 .tooltip-text {
   color: #424242;
+}
+
+.width-100 {
+  width: 100% !important;
+}
+.height-100 {
+  height: 100% !important;
+}
+.remove-card-focus-effect.v-card--link:before {
+  background-color: transparent !important;
+}
+.general-card-border {
+  border-radius: 8px !important;
+  border: 1px solid var(--off-white) !important;
 }

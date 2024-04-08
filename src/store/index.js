@@ -3,19 +3,20 @@ import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 import apiRequest from "@/services/apiRequest";
 import snackbar from "./modules/snackbar";
+import formStore from "./modules/formStore";
 
 Vue.use(Vuex);
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
+  modules: ["persistent", "snackbar", "formStore"],
 });
 
-const store = {
+const persistentModule = {
   state: {},
   getters: {},
   mutations: {
     logout() {
-      // window.localStorage.removeItem("vuex");
       //clear local storage
       localStorage.clear();
     },
@@ -139,9 +140,36 @@ const store = {
       });
     },
   },
+};
+
+const store = {
+  // set state that are not persist
+  state: {
+    vuexForms: [],
+    vuexActiveField: {},
+    vuexActiveTabForFields: "elements",
+  },
+  getters: {
+    getVuexForms: (state) => state.vuexForms,
+    getVuexActiveField: (state) => state.vuexActiveField,
+    getVuexActiveTabForFields: (state) => state.vuexActiveTabForFields,
+  },
+  mutations: {
+    setVuexForms(state, payload) {
+      state.vuexForms = payload;
+    },
+    setVuexActiveField(state, payload) {
+      state.vuexActiveField = payload;
+    },
+    setVuexActiveTabForFields(state, payload) {
+      state.vuexActiveTabForFields = payload;
+    },
+  },
   plugins: [vuexLocal.plugin],
   modules: {
+    persistent: persistentModule,
     snackbar,
+    formStore,
   },
 };
 

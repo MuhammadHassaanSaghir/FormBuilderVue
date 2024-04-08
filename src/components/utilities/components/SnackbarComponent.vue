@@ -16,11 +16,11 @@
       </v-icon>
       <span v-if="color == 'success'" class="pl-2" id="snack-bar-success-id">
         <b class="mr-1">Success! </b>
-        {{ message }}
+        {{ messages }}
       </span>
       <span v-else class="pl-2 d-flex justify-center" id="snack-bar-error-id">
         <b class="mr-1">Error! </b>
-        {{ message }}
+        {{ messages }}
       </span>
     </div>
     <template v-slot:action="{ attrs }">
@@ -45,7 +45,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    message: {
+    messages: {
       type: String,
     },
     color: {
